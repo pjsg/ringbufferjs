@@ -94,6 +94,8 @@ RingBuffer.prototype.peekN = function(count) {
 RingBuffer.prototype.deq = function() {
   var element = this.peek();
 
+  delete this._elements[this._first];
+
   this._size--;
   this._first = (this._first + 1) % this.capacity();
 
